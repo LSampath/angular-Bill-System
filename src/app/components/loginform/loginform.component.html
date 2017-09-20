@@ -1,0 +1,10 @@
+<div class="inner-container">
+  <div class="box">
+
+    <h1>Welcome Back</h1>
+    <input type="text" placeholder="Username" #username/>
+    <input type="password" placeholder="Password" #password/>
+    <button (click)="loginUser(username.value, password.value)">Login</button>
+    <p>Forgot password? <span>Reset now</span></p>
+  </div>
+</div>
