@@ -1,4 +1,10 @@
-p {
-  border-top: solid gray 1px;
-  padding: 20px;
+div {
+  border-top: solid black 1px;
+  background-color: #005555;
+  color: white;
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
 }

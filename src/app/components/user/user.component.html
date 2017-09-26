@@ -1,7 +1,8 @@
+
 <p>User List</p>
 
 <ul>
-  <li *ngFor="let user of userlist" attr.user_id="{{user.id}}" (click)="goToUserDetail($event)">
+  <li *ngFor="let user of userlist" id="{{user.id}}" (click)="goToUserDetail($event)">
     ID: {{user.id}}, Name: {{user.name}}, e-mail: {{user.email}}
   </li>
 </ul>
