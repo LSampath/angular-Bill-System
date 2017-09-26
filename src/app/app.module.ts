@@ -12,15 +12,16 @@ import {AuthenticationGuard} from './services/authentication.guard';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { UserComponent } from './components/user/user.component';
 import { UserdetailComponent } from './components/userdetail/userdetail.component';
+import { TabpaneComponent } from './components/tabpane/tabpane.component';
+import { HomeComponent } from './components/home/home.component';
 
 const appRoutes: Routes = [
-  {path: '', component: LoginformComponent},
-  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthenticationGuard]},
-  {path: 'user', children: [
-      {path: '', component: UserComponent},
-      {path: ':id', component: UserdetailComponent}
-    ], canActivate: [AuthenticationGuard]
-  },
+  {path: '', component: HomeComponent, children: [
+    {path: '', component: DashboardComponent},
+    {path: 'user', component: UserComponent},
+    {path: 'user/:id', component: UserdetailComponent}
+  ]},
+  {path: 'login', component: LoginformComponent},
   {path: '**', component: NotfoundComponent}
 ];
 
@@ -33,7 +34,9 @@ const appRoutes: Routes = [
     DashboardComponent,
     NotfoundComponent,
     UserComponent,
-    UserdetailComponent
+    UserdetailComponent,
+    TabpaneComponent,
+    HomeComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

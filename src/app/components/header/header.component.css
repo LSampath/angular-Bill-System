@@ -1,4 +1,18 @@
-h1 {
-  padding: 20px;
-  border-bottom: solid gray 1px;
+.page-header {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: darkcyan;
+  color: white;
+  border-bottom: solid black 1px;
+}
+#header-space {
+  height: 60px;
+}
+
+h2 {
+  padding: 10px 20px 5px 20px;
+  margin: 0;
 }
