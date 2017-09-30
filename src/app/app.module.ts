@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { LoginformComponent } from './components/loginform/loginform.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import {UserService} from './services/user.service';
 import {AuthenticationGuard} from './services/authentication.guard';
@@ -14,10 +13,17 @@ import { UserComponent } from './components/user/user.component';
 import { UserdetailComponent } from './components/userdetail/userdetail.component';
 import { TabpaneComponent } from './components/tabpane/tabpane.component';
 import { HomeComponent } from './components/home/home.component';
+import { InvoiceComponent } from './components/invoice/invoice.component';
+import { SupplierComponent } from './components/supplier/supplier.component';
+import { StaticsComponent } from './components/statics/statics.component';
+import { InvoicedetailComponent } from './components/invoicedetail/invoicedetail.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, children: [
-    {path: '', component: DashboardComponent},
+    {path: 'invoice', component: InvoiceComponent},
+    {path: 'invoice/:no', component: InvoicedetailComponent},
+    {path: 'statics', component: StaticsComponent},
+    {path: 'supplier', component: SupplierComponent},
     {path: 'user', component: UserComponent},
     {path: 'user/:id', component: UserdetailComponent}
   ]},
@@ -31,12 +37,15 @@ const appRoutes: Routes = [
     LoginformComponent,
     HeaderComponent,
     FooterComponent,
-    DashboardComponent,
     NotfoundComponent,
     UserComponent,
     UserdetailComponent,
     TabpaneComponent,
-    HomeComponent
+    HomeComponent,
+    InvoiceComponent,
+    SupplierComponent,
+    StaticsComponent,
+    InvoicedetailComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

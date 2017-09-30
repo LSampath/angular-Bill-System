@@ -1,7 +1,9 @@
-.page-header {
+
+header {
   margin: 0;
   padding: 0;
   position: fixed;
+  z-index: 2;
   width: 100%;
   top: 0;
   background-color: darkcyan;
@@ -9,10 +11,23 @@
   border-bottom: solid black 1px;
 }
 #header-space {
-  height: 60px;
+  height: 65px;
 }
 
 h2 {
   padding: 10px 20px 5px 20px;
   margin: 0;
+  display: inline-block;
+  font-family: HeadingFont;
+}
+
+i {
+  display: inline-block;
+  float: right;
+  margin-right: 30px;
+  padding: 20px 15px 20px 15px;
+  cursor: pointer;
+}
+i:hover {
+  background-color: darkslategray;
 }

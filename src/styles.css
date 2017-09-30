@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: HeadingFont;
+  src: url(resources/MontereyFLF.ttf);
+}
+
+.container-fluid {
+  padding: 10px 0;
+  margin: 10px 0;
+}
