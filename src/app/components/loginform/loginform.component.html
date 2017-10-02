@@ -14,7 +14,7 @@
           <form accept-charset="UTF-8" role="form" (submit)="onSubmit(username.value, password.value)">
             <fieldset>
               <div class="form-group">
-                <input class="form-control" placeholder="Username" type="text" #username>
+                <input class="form-control" placeholder="Username" type="text" #username value="{{this.user_name}}">
               </div>
               <div class="form-group">
                 <input class="form-control" placeholder="Password" type="password" value="" #password>

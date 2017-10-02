@@ -1,9 +1,60 @@
+<div class="container-fluid">
+  <div class="col-sm-12"  style="padding: 10px;">
+    <button class="btn btn-info btn-lg" (click)="goToProfile()">My Profile</button>
+    <button class="btn btn-success btn-lg" (click)="goToProfile()">New User</button>
+  </div>
 
-<p>User List</p>
+  <div class="col-sm-3">
+    <p><b>Users,</b></p>
 
-<ul>
-  <li *ngFor="let user of userlist" id="{{user.id}}" (click)="goToUserDetail($event)">
-    ID: {{user.id}}, Name: {{user.name}}, e-mail: {{user.email}}
-  </li>
-</ul>
+    <div class="list-group">
+      <a class="list-group-item active">Lahiru</a>
+      <a class="list-group-item">Sampath</a>
+      <a class="list-group-item">Ashan</a>
+      <a class="list-group-item">Sampath</a>
+      <a class="list-group-item">Peththaaa</a>
+      <a class="list-group-item">admin</a>
+      <a class="list-group-item">AshanMadu</a>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="col-sm-2" style="text-align: right">
+      <b>User details,</b>
+    </div>
+    <br>
+
+    <div class="col-sm-2 user_detail" style="text-align: right">
+      <span>User ID :</span>
+    </div>
+    <div class="col-sm-9  user_detail">
+      <b>U02</b>
+    </div>
+    <br>
+    <div class="col-sm-2  user_detail" style="text-align: right">
+      <span>Username :</span>
+    </div>
+    <div class="col-sm-9  user_detail">
+      <b>Lahuru</b>
+    </div>
+    <br>
+    <div class="col-sm-2  user_detail" style="text-align: right">
+      <span>Name :</span>
+    </div>
+    <div class="col-sm-9  user_detail">
+      <b>Lahiru Sampath Vithanage</b>
+    </div>
+    <br>
+    <div class="col-sm-2  user_detail" style="text-align: right">
+      <span>Email :</span>
+    </div>
+    <div class="col-sm-9  user_detail">
+      <b>lahirusampath.15@cse.mrt.ac.lk</b>
+    </div>
+    <div class="col-sm-6" style="text-align: center; padding: 10px;">
+      <button class="btn btn-primary" (click)="logInAs('Lahiru')">LogIn As</button>
+    </div>
+  </div>
+
+</div>
+
 

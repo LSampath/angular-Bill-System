@@ -1,91 +1,58 @@
+<div class="container-fluid">
 
+  <div class="col-sm-9">
+    <p><b>My profile,</b></p>
 
-<p>User details</p>
-<h3>{{user.name}}</h3>
-<p>email address: {{user.email}}</p>
+    <h3>{{ my.getUserName() }}</h3>
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-sm-3" >Username : </label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" value="LSampath">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-3">Name : </label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" value="Lahiru Sampath Vithanage">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-3">e-mail : </label>
+        <div class="col-sm-6">
+          <input type="email" class="form-control" value="lahirusampath.15@cse.mrt.ac.lk">
+        </div>
+      </div>
 
-<p><i>edit user details</i></p>
-<label for="enable_edit">Edit User details</label>
-<input type="checkbox" name="enable_edit" id="enable_edit" (change)="enableEdit()">
+      <hr>
 
-<div *ngIf="editable" id="edit_user_div">
-  <label> Name : </label> <input type="text" name="username" #username><br>
-  <label> Email : </label> <input type="text" name="email" #email>
-  <p><button (click)="resetDetail()">Reset Details</button></p>
-  <p><button (click)="saveDetail(username.value, email.value)">Save Details</button></p>
-</div>
+      <p><b>Change Password,</b></p>
 
-<div class="box">
-  <div class="box-header">
-    <h3 class="box-title">Hover Data Table</h3>
+      <div class="form-group">
+        <label class="control-label col-sm-3">Current password : </label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" placeholder="enter current password">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-3">New password : </label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" placeholder="enter new password">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-3">Conform password : </label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" placeholder="confirm password">
+        </div>
+      </div>
+
+      <hr>
+      <div class="col-sm-9" style="text-align: right">
+        <button class="btn btn-danger" style="margin: 10px;"> Drop </button>
+        <button class="btn btn-success" style="margin: 10px;"> Save </button>
+      </div>
+    </form>
   </div>
-  <!-- /.box-header -->
-  <div class="box-body">
-    <table id="example2" class="table table-bordered table-hover">
-      <thead>
-      <tr>
-        <th>Rendering engine</th>
-        <th>Browser</th>
-        <th>Platform(s)</th>
-        <th>Engine version</th>
-        <th>CSS grade</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>Trident</td>
-        <td>Internet
-          Explorer 4.0
-        </td>
-        <td>Win 95+</td>
-        <td> 4</td>
-        <td>X</td>
-      </tr>
-      <tr>
-        <td>Trident</td>
-        <td>Internet
-          Explorer 5.0
-        </td>
-        <td>Win 95+</td>
-        <td>5</td>
-        <td>C</td>
-      </tr>
-      <tr>
-        <td>Trident</td>
-        <td>Internet
-          Explorer 5.5
-        </td>
-        <td>Win 95+</td>
-        <td>5.5</td>
-        <td>A</td>
-      </tr>
-      <tr>
-        <td>Misc</td>
-        <td>PSP browser</td>
-        <td>PSP</td>
-        <td>-</td>
-        <td>C</td>
-      </tr>
-      <tr>
-        <td>Other browsers</td>
-        <td>All others</td>
-        <td>-</td>
-        <td>-</td>
-        <td>U</td>
-      </tr>
-      </tbody>
-      <tfoot>
-      <tr>
-        <th>Rendering engine</th>
-        <th>Browser</th>
-        <th>Platform(s)</th>
-        <th>Engine version</th>
-        <th>CSS grade</th>
-      </tr>
-      </tfoot>
-    </table>
-  </div>
-  <!-- /.box-body -->
+
 </div>
-
-
