@@ -28,6 +28,7 @@ const appRoutes: Routes = [
     {path: 'user/:id', component: UserdetailComponent}
   ]},
   {path: 'login', component: LoginformComponent},
+  {path: 'login/:username', component: LoginformComponent},
   {path: '**', component: NotfoundComponent}
 ];
 

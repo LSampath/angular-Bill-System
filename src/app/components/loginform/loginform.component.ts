@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../services/user.service';
+import {isUndefined} from 'util';
 
 @Component({
   selector: 'app-loginform',
@@ -8,8 +9,9 @@ import {UserService} from '../../services/user.service';
   styleUrls: ['./loginform.component.css']
 })
 export class LoginformComponent implements OnInit {
+  user_name: string;
 
-  constructor(private router: Router, private user: UserService) { }
+  constructor(private router: Router, private user: UserService, private route: ActivatedRoute) { }
 
   onSubmit(username, password) {
     if (username === 'admin' && password === 'LS') {
@@ -19,6 +21,9 @@ export class LoginformComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (! isUndefined(this.route.snapshot.params.username)) {
+      this.user_name = this.route.snapshot.params.username;
+    }
   }
 
 }
