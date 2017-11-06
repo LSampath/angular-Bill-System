@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {UserService} from '../../services/user.service';
+import * as $ from 'jquery';
+import {User} from '../../models/user';
 
 @Component({
   selector: 'app-user',
@@ -8,21 +10,31 @@ import {UserService} from '../../services/user.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  my: UserService;
+  users: any[];
+  userService: UserService;
 
   constructor(private router: Router, private user: UserService) {
-    this.my = user;
+    this.user.queryUsers().subscribe(
+      users => {
+        this.users = users;
+        console.log(users);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+    $('#' + this.user.getCurrentUser().username + '_user').addClass('active');
   }
 
   ngOnInit() {
+    $('.active').removeClass('active');
+    $('#userTab').addClass('active');
+
+    console.log('#' + this.user.getCurrentUser().username + '_user');
   }
 
-  logInAs(username) {
-    this.router.navigate(['login/' + username]);
-  }
-
-  goToProfile() {
-    this.router.navigate(['user/' + this.my.getUserName()]);
+  goToProfile(name) {
+    this.router.navigate(['user/' + name]);
   }
 
 }

@@ -10,7 +10,8 @@ export class HeaderComponent implements OnInit {
   username: string;
 
   constructor(private user: UserService) {
-    this.username = user.getUserName();
+    // this.username = user.getUserName();
+    this.username = user.getCurrentUser().username;
   }
 
   ngOnInit() {

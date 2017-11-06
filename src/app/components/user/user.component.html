@@ -1,25 +1,26 @@
 <div class="container-fluid">
   <div class="col-sm-12"  style="padding: 10px;">
-    <button class="btn btn-info btn-lg" (click)="goToProfile()">My Profile</button>
-    <button class="btn btn-success btn-lg" (click)="goToProfile()">New User</button>
+    <button class="btn btn-info btn-lg" (click)="goToProfile(this.userService.getCurrentUser().username)">My Profile</button>
+    <button class="btn btn-success btn-lg" (click)="goToProfile('new_user')">New User</button>
+
+    <p style="margin: 10px 0 0 0;">
+      <input type="checkbox"><label style="padding: 10px 15px 0 5px;"> Teachers</label>
+      <input type="checkbox"><label style="padding: 10px 15px 0 5px;"> Administratives</label>
+    </p>
   </div>
 
-  <div class="col-sm-3">
-    <p><b>Users,</b></p>
-
+  <div class="col-sm-3" style="padding: 0 10px;">
     <div class="list-group">
-      <a class="list-group-item active">Lahiru</a>
-      <a class="list-group-item">Sampath</a>
-      <a class="list-group-item">Ashan</a>
-      <a class="list-group-item">Sampath</a>
-      <a class="list-group-item">Peththaaa</a>
-      <a class="list-group-item">admin</a>
-      <a class="list-group-item">AshanMadu</a>
+      <!--<a class="list-group-item active">Lahiru</a>-->
+      <a class="list-group-item" *ngFor="let user of users" id="{{user.username + '_user'}}" >{{user.username}}</a>
     </div>
+    <script>
+      $('#' + this.userService.getCurrentUser().username + '_user').addClass('active');
+    </script>
   </div>
   <div class="col-sm-8">
     <div class="col-sm-2" style="text-align: right">
-      <b>User details,</b>
+      <b>User details</b>
     </div>
     <br>
 
@@ -49,9 +50,6 @@
     </div>
     <div class="col-sm-9  user_detail">
       <b>lahirusampath.15@cse.mrt.ac.lk</b>
-    </div>
-    <div class="col-sm-6" style="text-align: center; padding: 10px;">
-      <button class="btn btn-primary" (click)="logInAs('Lahiru')">LogIn As</button>
     </div>
   </div>
 

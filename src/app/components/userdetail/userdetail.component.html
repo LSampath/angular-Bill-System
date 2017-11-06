@@ -1,56 +1,72 @@
 <div class="container-fluid">
 
   <div class="col-sm-9">
-    <p><b>My profile,</b></p>
+    <p *ngIf="!this.newuser"><b>My profile</b></p>
+    <p *ngIf="this.newuser"><b>New user detail</b></p>
 
-    <h3>{{ my.getUserName() }}</h3>
     <form class="form-horizontal">
       <div class="form-group">
         <label class="control-label col-sm-3" >Username : </label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" value="LSampath">
+          <input type="text" class="form-control" placeholder="username" name="username" [(ngModel)]="userDetail.username">
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-3">Name : </label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" value="Lahiru Sampath Vithanage">
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-sm-3">e-mail : </label>
-        <div class="col-sm-6">
-          <input type="email" class="form-control" value="lahirusampath.15@cse.mrt.ac.lk">
+          <input type="text" class="form-control" placeholder="full name" name="name" [(ngModel)]="userDetail.name">
         </div>
       </div>
 
-      <hr>
+      <p><b>Password,</b></p>
 
-      <p><b>Change Password,</b></p>
-
-      <div class="form-group">
+      <div class="form-group" *ngIf="!this.newuser">
         <label class="control-label col-sm-3">Current password : </label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" placeholder="enter current password">
+          <input type="password" class="form-control" placeholder="enter current password" name="cur_pass" >
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-3">New password : </label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" placeholder="enter new password">
+          <input type="password" class="form-control" placeholder="new password" [(ngModel)]="userDetail.password" name="password" >
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-3">Conform password : </label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" placeholder="confirm password">
+          <input type="password" class="form-control" placeholder="confirm password" id="confirm_password" name="con_pass" >
+        </div>
+      </div>
+
+      <p><label style="padding: 10px 15px 0 5px;">Register as a teacher</label><input type="checkbox" (change)="addTeacher()" ></p>
+
+      <div *ngIf="(this.isTeacher)">
+        <div class="form-group">
+          <label class="control-label col-sm-3">Contact : </label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" placeholder="contact number" name="contact" [(ngModel)]="teacherDetail.contact">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">Address : </label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" placeholder="address" name="address" [(ngModel)]="teacherDetail.address">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">Subject :</label>
+          <div class="col-sm-6">
+            <input class="form-control" placeholder="subject of teacher" auto-complete [(ngModel)]="myData"
+                   [source]="mySource" name="subjects"/>
+          </div>
         </div>
       </div>
 
       <hr>
       <div class="col-sm-9" style="text-align: right">
-        <button class="btn btn-danger" style="margin: 10px;"> Drop </button>
-        <button class="btn btn-success" style="margin: 10px;"> Save </button>
+        <button class="btn btn-warning" style="margin: 10px;"> Cancel </button>
+        <button class="btn btn-success" style="margin: 10px;" (click)="addUser()"> Save </button>
       </div>
     </form>
   </div>

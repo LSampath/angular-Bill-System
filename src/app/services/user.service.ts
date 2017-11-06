@@ -1,26 +1,50 @@
 import { Injectable } from '@angular/core';
+import {User} from '../models/user';
+import {Http} from '@angular/http';
+import {Router} from '@angular/router';
 
 @Injectable()
 export class UserService {
 
-  private isUserLoggedIn: boolean;
-  private username: string;
+  private currentUser: User;
 
-  constructor() {
-    this.isUserLoggedIn = false;
+  constructor(private http: Http, private router: Router) {
+    this.currentUser = new User(null, null, null, false);
   }
 
-  setUserLoggedIn(username) {
-    this.isUserLoggedIn = true;
-    this.username = username;
+  getCurrentUser() {
+    return this.currentUser;
+  }
+  setCurrentUser(user) {
+    this.currentUser = user;
   }
 
-  getUserLoggedIn() {
-    return this.isUserLoggedIn;
+  queryUser(username, password) {
+    // this.http.post('http://localhost/back_End/controllers/user.php/', {'username': username, 'password': password})
+    //   .map(res => res.json())
+    //   .subscribe(
+    //     function(users) {
+    //       this.currentUser = users[0];
+    //       this.currentUser.isUserLoggedIn = true;
+    //       action(true, null);
+    //     },
+    //     function(error) {
+    //       action(false, error);
+    //     });
+    return this.http.post('http://localhost/back_End/controllers/user.php/',
+      {'type': 'get_user', 'username': username, 'password': password})
+      .map(res => res.json());
   }
 
-  getUserName() {
-    return this.username;
+  queryUsers() {
+    return this.http.post('http://localhost/back_End/controllers/user.php/',
+      {'type': 'get_*_users'})
+      .map(res => res.json());
+  }
+
+  queryUsername(usernameInfo) {
+    return this.http.post('http://localhost/back_End/controllers/user.php/', usernameInfo)
+      .map(res => res.json());
   }
 
 }
