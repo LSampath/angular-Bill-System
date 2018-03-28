@@ -1,5 +1,24 @@
-<header>
-  <h2>ARALIYA BookShop</h2>
-  <i class="fa fa-user"> {{this.username}}</i>
-</header>
-<div id="header-space"></div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <h2 id="title_h2">ARALIYA BookShop</h2>
+    </div>
+    <div class="collapse navbar-collapse" id="#myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="header_tabs" (click)="loadMenu('invoice')" id="invoice_tab"><a>Invoice</a></li>
+        <li class="header_tabs" (click)="loadMenu('supplier')" id="supplier_tab"><a>Supplier</a></li>
+        <li class="header_tabs" (click)="loadMenu('expense')" id="expense_tab"><a>Expense</a></li>
+        <li class="header_tabs" (click)="loadMenu('statistic')" id="statistic_tab"><a>Statistics</a></li>
+        <li class="header_tabs" (click)="loadMenu('user')" id="user_tab"><a>Users</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="header_tabs"><a>{{username}}</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

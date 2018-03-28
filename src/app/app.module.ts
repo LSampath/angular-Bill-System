@@ -11,21 +11,31 @@ import {AuthenticationGuard} from './services/authentication.guard';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { UserComponent } from './components/user/user.component';
 import { UserdetailComponent } from './components/userdetail/userdetail.component';
-import { TabpaneComponent } from './components/tabpane/tabpane.component';
 import { HomeComponent } from './components/home/home.component';
 import { InvoiceComponent } from './components/invoice/invoice.component';
 import { SupplierComponent } from './components/supplier/supplier.component';
 import { StaticsComponent } from './components/statics/statics.component';
 import { InvoicedetailComponent } from './components/invoicedetail/invoicedetail.component';
+import { ExpanceComponent } from './components/expance/expance.component';
+import {HttpModule} from '@angular/http';
+import {FormsModule} from '@angular/forms';
+import {CookieService} from 'ngx-cookie-service';
+import {ExpanseService} from './services/expanse.service';
+import {NgAutoCompleteModule} from 'ng-auto-complete';
+import {Ng2UIModule} from 'ng2-ui';
+import {SupplierService} from './services/supplier.service';
+import {InvoiceService} from './services/invoice.service';
+
 
 const appRoutes: Routes = [
-  {path: '', component: HomeComponent, children: [
+  {path: '', component: HomeComponent, canActivate: [AuthenticationGuard], children: [
     {path: 'invoice', component: InvoiceComponent},
     {path: 'invoice/:no', component: InvoicedetailComponent},
-    {path: 'statics', component: StaticsComponent},
+    {path: 'statistic', component: StaticsComponent},
     {path: 'supplier', component: SupplierComponent},
     {path: 'user', component: UserComponent},
-    {path: 'user/:id', component: UserdetailComponent}
+    {path: 'user/:id', component: UserdetailComponent},
+    {path: 'expense', component: ExpanceComponent}
   ]},
   {path: 'login', component: LoginformComponent},
   {path: 'login/:username', component: LoginformComponent},
@@ -41,18 +51,29 @@ const appRoutes: Routes = [
     NotfoundComponent,
     UserComponent,
     UserdetailComponent,
-    TabpaneComponent,
     HomeComponent,
     InvoiceComponent,
     SupplierComponent,
     StaticsComponent,
-    InvoicedetailComponent
+    InvoicedetailComponent,
+    ExpanceComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    NgAutoCompleteModule,
+    Ng2UIModule
   ],
-  providers: [UserService, AuthenticationGuard],
+  providers: [
+    UserService,
+    AuthenticationGuard,
+    CookieService,
+    ExpanseService,
+    SupplierService,
+    InvoiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

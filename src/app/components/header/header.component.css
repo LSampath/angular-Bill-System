@@ -1,33 +1,52 @@
+/*header {*/
+  /*margin: 0;*/
+  /*padding: 0;*/
+  /*position: fixed;*/
+  /*z-index: 2;*/
+  /*width: 100%;*/
+  /*top: 0;*/
+  /*background-color: darkcyan;*/
+  /*color: white;*/
+  /*border-bottom: solid black 1px;*/
+/*}*/
+/*#header-space {*/
+  /*height: 65px;*/
+/*}*/
+/*#username_p a {*/
+/*color: white;*/
+/*padding-left: 5px;*/
+/*}*/
 
-header {
-  margin: 0;
-  padding: 0;
-  position: fixed;
-  z-index: 2;
-  width: 100%;
-  top: 0;
-  background-color: darkcyan;
-  color: white;
-  border-bottom: solid black 1px;
-}
-#header-space {
-  height: 65px;
-}
-
-h2 {
+#title_h2 {
   padding: 10px 20px 5px 20px;
   margin: 0;
   display: inline-block;
   font-family: HeadingFont;
 }
 
-i {
-  display: inline-block;
-  float: right;
-  margin-right: 30px;
-  padding: 20px 15px 20px 15px;
+.header_tabs a{
+  color: white;
   cursor: pointer;
 }
-i:hover {
-  background-color: darkslategray;
+.header_tabs a:hover {
+  color: lightcyan;
+}
+.header_tabs a:active {
+  color: cyan;
+}
+
+.navbar .active a{
+  background-color: cadetblue;
+}
+
+.container-fluid {
+  padding: 0;
+  margin: 0;
+}
+
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+  background-color: darkcyan;
+  border-color: darkcyan;
 }

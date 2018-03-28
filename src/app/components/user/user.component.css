@@ -1,3 +1,22 @@
 .user_detail {
   margin: 5px;
 }
+
+table {
+  width: 85%;
+  border: solid darkcyan;
+  border-collapse: separate;
+  border-width: 3px 0;
+  border-radius: 3px;
+}
+
+.container-fluid {
+  padding: 0;
+  margin: 0;
+}
+
+.title_component {
+  margin: 10px 10px;
+  border-bottom: lightgray solid thin;
+  color: gray;
+}

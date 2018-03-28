@@ -1,6 +1,5 @@
-
 <div class="page-header">
-  <h1>NILANTHA BOOKSHOP</h1>
+  <h1>ARALIYA BOOKSHOP</h1>
 </div>
 
 <div class="container">
@@ -11,13 +10,13 @@
           <h2 class="panel-title">Welcome Back</h2>
         </div>
         <div class="panel-body">
-          <form accept-charset="UTF-8" role="form" (submit)="onSubmit(username.value, password.value)">
+          <form accept-charset="UTF-8" role="form" (submit)="onSubmit(username.value, password.value)" name="login">
             <fieldset>
               <div class="form-group">
-                <input class="form-control" placeholder="Username" type="text" #username value="{{this.user_name}}">
+                <input class="form-control" placeholder="Username" type="text" #username name="username">
               </div>
               <div class="form-group">
-                <input class="form-control" placeholder="Password" type="password" value="" #password>
+                <input class="form-control" placeholder="Password" type="password" value="" #password name="password">
               </div>
               <div class="checkbox">
                 <label>

@@ -1,56 +1,64 @@
 <div class="container-fluid">
 
   <div class="col-sm-9">
-    <p><b>My profile,</b></p>
+    <p>{{message}}</p>
 
-    <h3>{{ my.getUserName() }}</h3>
     <form class="form-horizontal">
       <div class="form-group">
-        <label class="control-label col-sm-3" >Username : </label>
+        <label class="control-label col-sm-3" >Username </label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" value="LSampath">
+          <input type="text" class="form-control" id="username">
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-sm-3">Name : </label>
+        <label class="control-label col-sm-3">Name </label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" value="Lahiru Sampath Vithanage">
+          <input type="text" class="form-control" id="fullname">
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-sm-3">e-mail : </label>
+        <label class="control-label col-sm-3">e-mail </label>
         <div class="col-sm-6">
-          <input type="email" class="form-control" value="lahirusampath.15@cse.mrt.ac.lk">
+          <input type="email" class="form-control" id="email">
         </div>
       </div>
 
       <hr>
 
-      <p><b>Change Password,</b></p>
+      <p *ngIf="isNewUser">Password,</p>
 
-      <div class="form-group">
-        <label class="control-label col-sm-3">Current password : </label>
+      <div class="form-group" *ngIf="!this.isNewUser">
+        <label class="control-label col-sm-3">Current password </label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" placeholder="enter current password">
+          <input type="password" class="form-control" id="cur_password">
         </div>
       </div>
-      <div class="form-group">
-        <label class="control-label col-sm-3">New password : </label>
-        <div class="col-sm-6">
-          <input type="text" class="form-control" placeholder="enter new password">
-        </div>
+
+      <div *ngIf="!isNewUser">
+        <p id="password_check"><label style="padding: 10px 15px 0 5px;">Change password</label>
+          <input type="checkbox" (change)="isChangePassword = !isChangePassword"></p>
       </div>
-      <div class="form-group">
-        <label class="control-label col-sm-3">Conform password : </label>
-        <div class="col-sm-6">
-          <input type="text" class="form-control" placeholder="confirm password">
+
+      <div *ngIf="isChangePassword">
+        <div class="form-group">
+          <label class="control-label col-sm-3">New password </label>
+          <div class="col-sm-6">
+            <input type="password" class="form-control" id="new_password">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">Conform password </label>
+          <div class="col-sm-6">
+            <input type="password" class="form-control" id="conf_password">
+          </div>
         </div>
       </div>
 
       <hr>
-      <div class="col-sm-9" style="text-align: right">
-        <button class="btn btn-danger" style="margin: 10px;"> Drop </button>
-        <button class="btn btn-success" style="margin: 10px;"> Save </button>
+      <div class="col-sm-12" style="text-align: right">
+        <span>{{saveMessage}}</span>
+        <button class="btn btn-success" style="margin: 10px;" (click)="saveDetails()"> Save </button>
+        <button class="btn btn-danger" style="margin: 10px;" (click)="cancel()"> Cancel </button>
       </div>
     </form>
   </div>

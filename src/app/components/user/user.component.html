@@ -1,58 +1,34 @@
 <div class="container-fluid">
+  <h3 class="title_component">Users</h3>
+
   <div class="col-sm-12"  style="padding: 10px;">
-    <button class="btn btn-info btn-lg" (click)="goToProfile()">My Profile</button>
-    <button class="btn btn-success btn-lg" (click)="goToProfile()">New User</button>
+    <button class="btn btn-info btn-lg" (click)="userDetails()">My Profile</button>
+    <button class="btn btn-success btn-lg" (click)="userDetails('new_user')">New User</button>
   </div>
 
-  <div class="col-sm-3">
-    <p><b>Users,</b></p>
-
-    <div class="list-group">
-      <a class="list-group-item active">Lahiru</a>
-      <a class="list-group-item">Sampath</a>
-      <a class="list-group-item">Ashan</a>
-      <a class="list-group-item">Sampath</a>
-      <a class="list-group-item">Peththaaa</a>
-      <a class="list-group-item">admin</a>
-      <a class="list-group-item">AshanMadu</a>
-    </div>
-  </div>
-  <div class="col-sm-8">
-    <div class="col-sm-2" style="text-align: right">
-      <b>User details,</b>
-    </div>
-    <br>
-
-    <div class="col-sm-2 user_detail" style="text-align: right">
-      <span>User ID :</span>
-    </div>
-    <div class="col-sm-9  user_detail">
-      <b>U02</b>
-    </div>
-    <br>
-    <div class="col-sm-2  user_detail" style="text-align: right">
-      <span>Username :</span>
-    </div>
-    <div class="col-sm-9  user_detail">
-      <b>Lahuru</b>
-    </div>
-    <br>
-    <div class="col-sm-2  user_detail" style="text-align: right">
-      <span>Name :</span>
-    </div>
-    <div class="col-sm-9  user_detail">
-      <b>Lahiru Sampath Vithanage</b>
-    </div>
-    <br>
-    <div class="col-sm-2  user_detail" style="text-align: right">
-      <span>Email :</span>
-    </div>
-    <div class="col-sm-9  user_detail">
-      <b>lahirusampath.15@cse.mrt.ac.lk</b>
-    </div>
-    <div class="col-sm-6" style="text-align: center; padding: 10px;">
-      <button class="btn btn-primary" (click)="logInAs('Lahiru')">LogIn As</button>
-    </div>
+  <div class="col-sm-12"  style="padding: 10px;">
+    <p>Users of system</p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Fullname</th>
+          <th>E-mail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{curUser.username}}</td>
+          <td>{{curUser.fullname}}</td>
+          <td>{{curUser.email}}</td>
+        </tr>
+        <tr style="color: gray;" *ngFor="let user of users">
+          <td>{{user.username}}</td>
+          <td>{{user.fullname}}</td>
+          <td>{{user.email}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
 </div>
