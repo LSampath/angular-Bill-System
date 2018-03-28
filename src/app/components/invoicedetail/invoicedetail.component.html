@@ -1,0 +1,127 @@
+<div class="container-fluid">
+  <p><b>{{message}}</b></p>
+
+  <div class="col-sm-9" id="detail_div">
+    <form class="form-horizontal">
+
+      <div class="form-group">
+        <label class="control-label col-sm-3">Invoice No </label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" placeholder="invoice no" [(ngModel)]="curInvoice.i_no" name="i_no">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-3">Date </label>
+        <div class="col-sm-4">
+          <input type="date" class="form-control" [(ngModel)]="curInvoice.date" name="date">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-3">Supplier </label>
+        <div class="col-sm-7">
+          <select class="form-control" name="supplier" id="supplier_select">
+            <option *ngFor="let sup of suppliers" value="{{sup.s_id}}">{{sup.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-3">Amount Rs.</label>
+        <div class="col-sm-4">
+          <input type="number" class="form-control" placeholder="amount" [(ngModel)]="curInvoice.amount" name="amount">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-3">Profit </label>
+        <div class="col-sm-4">
+          <input type="number" class="form-control" placeholder="profit (%)" [(ngModel)]="curInvoice.profit"
+                 name="profit">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-3">Total Amount </label>
+        <div class="col-sm-4">
+          <label class="form-control" style="font-weight: normal; text-align: left;" name="total">
+            {{curInvoice.amount + (curInvoice.profit*curInvoice.amount)/100}}</label>
+        </div>
+      </div>
+
+      <hr>
+      <div class="form-group">
+        <label class="control-label col-sm-3">Include image </label>
+        <div class="col-sm-2">
+          <label class="form-control btn btn-primary">
+            Browse <input type="file" style="display: none;">
+          </label>
+        </div>
+        <label class="control-label col-sm-7" style="font-weight: normal; text-align: left;">
+          <span id="img_path" style="padding-left: 20px;"> src/app/components/footer/footer.component.html </span>
+        </label>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-8 col-sm-offset-3">
+          <p><b>Preview</b></p>
+          <img src="../../../assets/toastmasters_flyer.jpg" alt="image of invoice" class="img-responsive">
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="col-sm-9">
+
+    <hr>
+    <div>
+      <label class="col-sm-3" style="text-align: right;">Total amount </label>
+      <div class="col-sm-7">
+        <label style="text-align: left; font-weight: normal;">Rs. 10000</label>
+      </div>
+    </div>
+    <div>
+      <label class="col-sm-3" style="text-align: right;">Payed </label>
+      <div class="col-sm-7">
+        <label style="text-align: left; font-weight: normal;">Rs. 10000</label>
+      </div>
+    </div>
+    <div>
+      <label class="col-sm-3" style="text-align: right;">Balance </label>
+      <div class="col-sm-7">
+        <label style="text-align: left;  font-weight: normal">Rs. 10000</label>
+      </div>
+    </div>
+
+    <br>
+    <div class="col-sm-12" style="padding-top: 10px;">
+      <label class="col-sm-3" style="text-align: right;">Payments,</label>
+    </div>
+
+    <div>
+      <label class="col-sm-3" style="text-align: right;">Amount </label>
+      <div class="col-sm-3">
+        <label style="text-align: left;  font-weight: normal">Rs. 1000</label>
+      </div>
+      <label class="col-sm-2" style="text-align: right;">Date </label>
+      <div class="col-sm-3">
+        <label style="text-align: left;  font-weight: normal">2018-09-23</label>
+      </div>
+    </div>
+
+    <div class="col-sm-3" style="text-align: right; color: darkcyan;">
+      <b>New payment</b>
+    </div>
+    <br>
+
+    <div class="col-sm-1"></div>
+    <form class="form-inline col-sm-7" id="new_payment">
+      <div class="form-group">
+        <label>Amount : </label>
+        <input type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Date : </label>
+        <input type="date" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-default"> Add</button>
+    </form>
+
+  </div>
+</div>
